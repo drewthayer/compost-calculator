@@ -14,9 +14,11 @@ class CompostBin(object):
         self.N = self.Nfrac * self.dry_weight
         self.CNratio = self.C/self.N
 
+
     def load_data(self, dataframe):
         ''' loads dataframe of item data '''
         self.df = dataframe
+
 
     def add(self, item, volume):
         ''' add an item, at a specific volume'''
@@ -45,3 +47,14 @@ class CompostBin(object):
         print('volume = {:0.2f} yd3'.format(self.vol))
         print('density = {:0.2f} lb/yd3'.format(self.dense))
         print('water content = {:0.2f}'.format(self.wc))
+
+
+    def set_target_ratio(self, target):
+        ''' set a target ratio (integer or float) '''
+        self.target = target
+
+
+    def calc_to_balance(self, item):
+        # calc weight of carbon to add:
+        data = self.df.loc[item]
+        pass

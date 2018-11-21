@@ -14,8 +14,11 @@ if __name__=='__main__':
     bin.calc()
 
     # add to bin
-    bin.add('Yard trimmings', 3)
+    bin.add('Vegetable produce', 3)
     bin.calc()
+
+    # calculate how much browns to add to balance
+    bin.set_target_ratio(0.4)
 
     # example query
     #query = 'Yard trimmings'

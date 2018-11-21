@@ -20,7 +20,7 @@ def connect_to_sql(db_file):
 
 if __name__=='__main__':
     params = {'header':2, 'sep':',','thousands':','}
-    chars_df = pd.read_csv('feedstock_characteristics_clean.csv', **params)
+    chars_df = pd.read_csv('data/feedstock_characteristics_clean.csv', **params)
     chars_df.infer_objects() # infers float
 
     # clean file
@@ -48,7 +48,7 @@ if __name__=='__main__':
     #print(average_chars_df.loc[query])
 
 
-    # columns
+    # original column names 
     ''' ['Nitrogen (%dry weight)', 'Carbon (% dry weight',
        'C:N ratio (weight to weight)', 'Moisture content % (wet weight)',
        'Bulk density (pounds per cubic yard)', 'NH4-N %'] '''
