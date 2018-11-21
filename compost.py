@@ -57,4 +57,14 @@ class CompostBin(object):
     def calc_to_balance(self, item):
         # calc weight of carbon to add:
         data = self.df.loc[item]
-        pass
+        Cfrac_ = data['C_pct']/100 # fraction of C by dry weight of additive
+        Nfrac_ = data['N_pct']/100
+        num = self.dry_weight * (self.target * self.Nfrac - self.Cfrac)
+        denom = Cfrac_ - self.target * Nfrac_
+        dw_ = num/denom
+        # convert to volume
+        wc_ = data['wc']/100
+        w_ = dw_ / (1 - wc_)
+        vol_ = w_ / data['density']
+        print('target ratio: {}'.format(self.target))
+        print('add {:0.2f} yd3 of {}'.format(vol_, item))
